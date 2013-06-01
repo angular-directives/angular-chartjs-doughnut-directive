@@ -40,41 +40,18 @@ $scope.data = [
 
 The value attribute should be a number and the color attribute should be a string. This string can represent a color in any CSS compatible ways (HEX notation, RGB, RGBA, HSL).
 
-- data-chartjs-width (number: default 400)
-The width in pixel of the canvas.
-
-- data-chartjs-height (number: default 400)
-The height in pixel of the canvas.
-
-- data-chartjs-segment-show-stroke (boolean: default true)
-Whether we should show a stroke on each segment.
-
-- data-chartjs-segment-stroke-color (string: default "#fff")
-The colour of each segment stroke.
-
-- data-chartjs-segment-stroke-width (number: default 2)
-The width of each segment stroke.
-
-- data-chartjs-percentage-inner-cutout (number: default 50)
-The percentage of the chart that we cut out of the middle.
-
-- data-chartjs-animation (boolean: default true)
-Whether we should animate the chart.
-
-- data-chartjs-animation-steps (number: default 100)
-Amount of animation steps.
-
-- data-chartjs-animation-easing (string: default "easeOutBounce")
-Animation easing effect.
-
-- data-chartjs-animate-rotate (boolean: default true)
-Whether we animate the rotation of the Doughnut.
-
-- data-chartjs-animate-scale (boolean: default false)
-Whether we animate scaling the Doughnut from the centre.
-
-- data-chartjs-on-animation-complete (string: default "")
-Name of a function from the scope that will be called on animation completion.
+- data-chartjs-width (number: default 400). The width in pixel of the canvas.
+- data-chartjs-height (number: default 400). The height in pixel of the canvas.
+- data-chartjs-segment-show-stroke (boolean: default true). Whether we should show a stroke on each segment.
+- data-chartjs-segment-stroke-color (string: default "#fff"). The colour of each segment stroke.
+- data-chartjs-segment-stroke-width (number: default 2). The width of each segment stroke.
+- data-chartjs-percentage-inner-cutout (number: default 50). The percentage of the chart that we cut out of the middle.
+- data-chartjs-animation (boolean: default true). Whether we should animate the chart.
+- data-chartjs-animation-steps (number: default 100). Amount of animation steps.
+- data-chartjs-animation-easing (string: default "easeOutBounce"). Animation easing effect.
+- data-chartjs-animate-rotate (boolean: default true). Whether we animate the rotation of the Doughnut.
+- data-chartjs-animate-scale (boolean: default false). Whether we animate scaling the Doughnut from the centre.
+- data-chartjs-on-animation-complete (string: default ""). Name of a function from the scope that will be called on animation completion.
 
 A demonstration is visible in the file index.html.
 
