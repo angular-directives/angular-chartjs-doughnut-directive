@@ -22,10 +22,10 @@ angular.module('angular.directives-chartjs-doughnut', []).directive('angChartjsD
       var potentialOptions = [
         {key:'data-chartjs-segment-show-stroke', value:'segmentShowStroke', isBoolean: true},
         {key:'data-chartjs-segment-stroke-color', value:'segmentStrokeColor'},
-        {key:'data-chartjs-segment-stroke-width', value:'segmentStrokeWidth'},
-        {key:'data-chartjs-percentage-inner-cutout', value:'percentageInnerCutout'},
+        {key:'data-chartjs-segment-stroke-width', value:'segmentStrokeWidth', isNumber: true},
+        {key:'data-chartjs-percentage-inner-cutout', value:'percentageInnerCutout', isNumber: true},
         {key:'data-chartjs-animation', value:'animation', isBoolean: true},
-        {key:'data-chartjs-animation-steps', value:'animationSteps'},
+        {key:'data-chartjs-animation-steps', value:'animationSteps', isNumber: true},
         {key:'data-chartjs-animation-easing', value:'animationEasing'},
         {key:'data-chartjs-animate-rotate', value:'animateRotate', isBoolean: true},
         {key:'data-chartjs-animate-scale', value:'animateScale', isBoolean: true}
@@ -39,7 +39,9 @@ angular.module('angular.directives-chartjs-doughnut', []).directive('angChartjsD
           } else if ('false' === aKey) {
             options[potentialOptions[i].value] = false;
           }
-        } else if (aKey) {
+        } else if (aKey && potentialOptions[i].isNumber) {
+          options[potentialOptions[i].value] = parseInt(aKey);
+        }else if (aKey) {
           options[potentialOptions[i].value] = aKey;
         }
       }
