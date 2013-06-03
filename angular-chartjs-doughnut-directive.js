@@ -19,51 +19,30 @@ angular.module('angular.directives-chartjs-doughnut', []).directive('angChartjsD
 
       var options = {};
 
-      var segmentShowStroke = node.getAttribute('data-chartjs-segment-show-stroke');
-      if (segmentShowStroke) {
-        options.segmentShowStroke = segmentShowStroke;
-      }
+      var potentialOptions = [
+        {key:'data-chartjs-segment-show-stroke', value:'segmentShowStroke', isBoolean: true},
+        {key:'data-chartjs-segment-stroke-color', value:'segmentStrokeColor'},
+        {key:'data-chartjs-segment-stroke-width', value:'segmentStrokeWidth'},
+        {key:'data-chartjs-percentage-inner-cutout', value:'percentageInnerCutout'},
+        {key:'data-chartjs-animation', value:'animation', isBoolean: true},
+        {key:'data-chartjs-animation-steps', value:'animationSteps'},
+        {key:'data-chartjs-animation-easing', value:'animationEasing'},
+        {key:'data-chartjs-animate-rotate', value:'animateRotate', isBoolean: true},
+        {key:'data-chartjs-animate-scale', value:'animateScale', isBoolean: true}
+      ];
 
-      var segmentStrokeColor = node.getAttribute('data-chartjs-segment-stroke-color');
-      if (segmentStrokeColor) {
-        options.segmentStrokeColor = segmentStrokeColor;
+      for (var i = 0; i < potentialOptions.length; i++) {
+        var aKey = node.getAttribute(potentialOptions[i].key);
+        if (aKey && potentialOptions[i].isBoolean) {
+          if ('true' === aKey) {
+            options[potentialOptions[i].value] = true;
+          } else if ('false' === aKey) {
+            options[potentialOptions[i].value] = false;
+          }
+        } else if (aKey) {
+          options[potentialOptions[i].value] = aKey;
+        }
       }
-
-      var segmentStrokeWidth = node.getAttribute('data-chartjs-segment-stroke-width');
-      if (segmentStrokeWidth) {
-        options.segmentStrokeWidth = segmentStrokeWidth;
-      }
-
-      var percentageInnerCutout  = node.getAttribute('data-chartjs-percentage-inner-cutout');
-      if (percentageInnerCutout) {
-        options.percentageInnerCutout = percentageInnerCutout;
-      }
-
-      var animation = node.getAttribute('data-chartjs-animation');
-      if (animation) {
-        options.animation = animation;
-      }
-
-      var animationSteps = node.getAttribute('data-chartjs-animation-steps');
-      if (animationSteps) {
-        options.animationSteps = animationSteps;
-      }
-
-      var animationEasing = node.getAttribute('data-chartjs-animation-easing');
-      if (animationEasing) {
-        options.animationEasing = animationEasing;
-      }
-
-      var animationRotate = node.getAttribute('data-chartjs-animate-rotate');
-      if (animationRotate) {
-        options.animationRotate = animationRotate;
-      }
-
-      var animationScale = node.getAttribute('data-chartjs-animate-scale');
-      if (animationScale) {
-        options.animationScale = animationScale;
-      }
-
 
       var chart = new Chart(canvas.getContext('2d'));
       node.parentNode.replaceChild(canvas, node);
