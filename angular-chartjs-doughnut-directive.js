@@ -9,8 +9,8 @@ angular.module('angular.directives-chartjs-doughnut', []).directive('angChartjsD
     if (templateElement.length === 1) {
       var node = templateElement[0];
 
-      var width = '400' || node.getAttribute('data-chartjs-width');
-      var height = '400' || node.getAttribute('data-chartjs-height');
+      var width = node.getAttribute('data-chartjs-width') || '400';
+      var height = node.getAttribute('data-chartjs-height') || '400';
 
       var canvas = document.createElement('canvas');
       canvas.setAttribute('width', width);
