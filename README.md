@@ -21,7 +21,7 @@ var myModule = angular.module('MyModule', ['angular.directives-chartjs-doughnut'
 
 Use the directive in your HTML files with the following code:
 ```html
-<div ang:chartjs:doughnut data-chartjs-model="scopeVariableName"/>
+<div ang:chartjs:doughnut data-chartjs-model="scopeVariableName"></div>
 ```
 
 ### Parameters
