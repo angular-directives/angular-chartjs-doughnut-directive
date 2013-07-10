@@ -53,12 +53,14 @@ angular.module('angular.directives-chartjs-doughnut', []).directive('angChartjsD
         pre: function preLink(scope, instanceElement, instanceAttributes, controller) {
           var expression = canvas.getAttribute('data-chartjs-model');
           scope.$watch(expression, function (newValue, oldValue) {
-            var callback = scope[node.getAttribute('data-chartjs-on-animation-complete')];
-            if (callback !== undefined) {
-              options.onAnimationComplete = callback;
-            }
+            if (angular.isArray(newValue)){
+              var callback = scope[node.getAttribute('data-chartjs-on-animation-complete')];
+              if (callback !== undefined) {
+                options.onAnimationComplete = callback;
+              }
 
-            chart.Doughnut(newValue, options);
+              chart.Doughnut(newValue, options);
+            }
           }, true);
         },
         post: function postLink(scope, instanceElement, instanceAttributes, controller) {}
